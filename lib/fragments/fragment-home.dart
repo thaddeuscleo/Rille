@@ -16,6 +16,15 @@ class HomePageFragment extends StatelessWidget {
           SizedBox(
             height: size.height * 0.03,
           ),
+          Container(
+            child: Image.asset('assets/images/rille-music.jpg'),
+          ),
+          SizedBox(
+            height: size.height * 0.03,
+          ),
+          Container(
+            child: Image.asset('assets/images/rille-muze.jpg'),
+          )
         ],
       ),
     );
