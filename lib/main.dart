@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rille/pages/home-page.dart';
+import 'package:rille/pages/welcome-page.dart';
 import 'package:rille/providers/theme.dart';
 import 'package:rille/utils/constants.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'RILLE',
             theme: themeProvider.getTheme,
-            home: HomePage(),
+            home: WelcomePage(),
           );
         },
       ),

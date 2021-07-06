@@ -1,9 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rille/utils/constants.dart';
+import 'package:rille/pages/login-page.dart';
 
 class WelcomePage extends StatelessWidget {
+  void onPressed(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (builder) {
+          return LoginPage();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -45,7 +56,7 @@ class WelcomePage extends StatelessWidget {
                   height: size.height * 0.03,
                 ),
                 ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () => onPressed(context),
                   child: Text('LOGIN'),
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsets>(
@@ -61,24 +72,6 @@ class WelcomePage extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.03,
                 ),
-                ElevatedButton(
-                  onPressed: () => {},
-                  child: Text('SIGN UP'),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(primaryLightColor),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(primaryColor),
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 100, vertical: 18),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
           ],

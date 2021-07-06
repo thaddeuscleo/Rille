@@ -37,6 +37,7 @@ class _CardWidget extends StatelessWidget {
         child: Center(
           child: ListTile(
             title: Text(review.reviewCaption),
+            trailing: Text(review.username),
           ),
         ),
       ),

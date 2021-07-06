@@ -4,6 +4,7 @@ import 'package:rille/components/popup-menu.dart';
 import 'package:rille/fragments/fragement-items.dart';
 import 'package:rille/fragments/fragment-home.dart';
 import 'package:rille/fragments/fragment-profile.dart';
+import 'package:rille/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: currentUser,
           ),
         ],
         currentIndex: _selectedIndex,

@@ -5,7 +5,15 @@ import 'package:rille/utils/constants.dart';
 class RoundedTextField extends StatelessWidget {
   final String _hintText;
   final IconData _icon;
-  RoundedTextField(this._hintText, this._icon);
+  final TextEditingController _controller;
+
+  RoundedTextField({
+    required String hintText,
+    required IconData icon,
+    required TextEditingController controller,
+  })  : _hintText = hintText,
+        _icon = icon,
+        _controller = controller;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +29,7 @@ class RoundedTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: TextField(
+        controller: _controller,
         decoration: InputDecoration(
           hintText: _hintText,
           border: InputBorder.none,

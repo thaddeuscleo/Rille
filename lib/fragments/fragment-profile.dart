@@ -1,11 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rille/components/rounded-button.dart';
+import 'package:rille/pages/welcome-page.dart';
 import 'package:rille/utils/constants.dart';
 
 class ProfileFragment extends StatelessWidget {
-  void onLogedOut(context) {
-    print('hello');
+  void onLogedOut(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (builder) {
+          return WelcomePage();
+        },
+      ),
+    );
   }
 
   @override

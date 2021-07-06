@@ -65,8 +65,17 @@ List<Music> songs = [
 
 List<Review> generateReview() {
   return [
-    Review('Coool', 5),
-    Review('Amzing', 5),
-    Review('Yeah', 4),
+    Review(
+      review: 'Coool',
+      username: 'Ben',
+    ),Review(
+      review: 'Amziing',
+      username: 'Ben',
+    ),Review(
+      review: 'ICantBelieveit',
+      username: 'Dave',
+    ),
   ];
 }
+
+String currentUser = '';

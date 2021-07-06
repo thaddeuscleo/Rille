@@ -1,8 +1,13 @@
 class Review {
   String _reviewCaption;
-  int _rating;
-  Review(this._reviewCaption, this._rating);
+  String _username;
+
+  Review({
+    required String review,
+    required String username,
+  })  : _reviewCaption = review,
+        _username = username;
 
   get reviewCaption => this._reviewCaption;
-  get rating => this._rating;
+  get username => this._username;
 }

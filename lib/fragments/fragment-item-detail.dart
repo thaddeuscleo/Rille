@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rille/components/rounded-button.dart';
 import 'package:rille/components/rounded-textfield.dart';
 import 'package:rille/models/music.dart';
+import 'package:rille/models/review.dart';
+import 'package:rille/utils/constants.dart';
+import 'package:rille/utils/validator.dart';
 
 class ItemDetailFragemant extends StatefulWidget {
   final Music music;
@@ -11,7 +15,29 @@ class ItemDetailFragemant extends StatefulWidget {
 
 class _FragmentState extends State<ItemDetailFragemant> {
   Music music;
+  final TextEditingController _reviewController = TextEditingController();
+  Validator _validator = Validator();
+
   _FragmentState(this.music);
+
+  void onPressed(BuildContext context) {
+    bool isValidReview = _validator.validateEmptyField(_reviewController);
+    SnackBar snackBar;
+    if (!isValidReview) {
+      snackBar = SnackBar(
+        content: Text('Review Cannot Be Empty!'),
+      );
+    } else {
+      music.reviews.add(new Review(
+        review: _reviewController.text,
+        username: currentUser,
+      ));
+      snackBar = SnackBar(
+        content: Text('Succesfully Post Review'),
+      );
+    }
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +87,12 @@ class _FragmentState extends State<ItemDetailFragemant> {
               ],
             ),
           ),
-          RoundedTextField('Your Review', Icons.rate_review)
+          RoundedTextField(
+            hintText: 'Your Review',
+            icon: Icons.rate_review,
+            controller: _reviewController,
+          ),
+          RoundedButton('Submit Review', onPressed, primaryColor)
         ],
       ),
     );
